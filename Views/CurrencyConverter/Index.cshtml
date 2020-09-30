@@ -1,0 +1,55 @@
+﻿@model dotnet_technical_test.Models.CurrencyConverter.ConversionModel
+@{ Layout = "~/Pages/Shared/_Layout.cshtml"; }
+
+
+    <div class="container">
+        <h2 class="display-6">Currency Calculator</h2>
+        <p>Convert the currency</p>
+        @using (Html.BeginForm("Index", "CurrencyConverter", FormMethod.Post, new { @class = "form-inline", role = "form" }))
+        {
+    @Html.TextBoxFor(model => model.Amount, new { @class = "form-control" })
+                    @Html.DropDownListFor(model => model.Base_Currency, Model.ISO_Codes, new { @class = "form-control m-2" })
+
+                                    <div class="form-group m-2">
+                                        @Html.Label("covert to")
+                                        @Html.DropDownListFor(model => model.Exchange_Currency, Model.ISO_Codes, new { @class = "form-control m-2" })
+
+                                    </div>
+
+
+                                                    <button type="submit" class="btn btn-primary m-2">Convert</button>}
+        @Html.Label("", (string)ViewBag.result)
+
+
+
+    </div>
+
+
+@*<div class="container-fluid">
+    <h2 class="display-6">Currency Calculator</h2>
+    <p>Convert the currency</p>
+
+    <form class="form-inline">
+        <input type="text" class="form-control" id="inlineFormAmount">
+        <select id="baseCurrency" class="form-control m-2">
+            @foreach (string item in ViewBag.ISO_Codes)
+            {
+<option value="@item">@item</option>}
+        </select>
+        <label class="m-2">covert to</label>
+        <select id="convertedCurrency" class="form-control m-2">
+            @foreach (string item in ViewBag.ISO_Codes)
+            {
+<option value="@item">@item</option>}
+        </select>
+        <button type="submit" name="currencyCode" value="Search button">Convert</button>
+    </form>
+
+
+    <p>129817288.121972 soh</p>
+</div>*@
+
+
+
+
+
